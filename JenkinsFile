@@ -1,0 +1,40 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git') {
+            steps {
+                echo 'Getting project from Git'
+                  git "https://github.com/nadahassen/CI-project.git"
+            }
+        }
+         stage('Mvn clean') {
+            steps {
+                sh 'mvn clean'
+            }
+        }
+         stage('Mvn compile') {
+            steps {
+                sh 'mvn compile'
+            }
+        }
+         stage('Mvn sonar') {
+            steps {
+                sh 'mvn sonar:sonar -Dsonar.login-admin -Dsonar.password-sonar'
+            }
+        }
+         stage('Mvn Junit') {
+            steps {
+                echo 'MVN test'
+               
+            }
+        }
+        stage('Deploy'){
+			steps{
+				echo "mvn deploy"
+			}				
+		}
+       
+    }    
+   
+}
