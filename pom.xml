@@ -55,7 +55,13 @@
 		</dependency>
 
 	</dependencies>
-
+	<distributionManagement>
+		<repository>
+		<id>deploymentRepo</id>
+		<name>NexusRepository</name>
+		<url>http://192.168.1.25:8081/repository/maven-snapshots/</url>
+		</repository>
+	</distributionManagement>
 	<build>
 		<plugins>
 			<plugin>
@@ -77,15 +83,6 @@
 			</plugin>
 		</plugins>
 	</build>
-	<distributionManagement>
-		<snapshotRepository>
-		<id>nexus</id>
-		<url>http://localhost:8081/repository/maven-snapshots/</url>
-		</snapshotRepository>
-		<repository>
-		<id>nexus</id>
-		<url>http://localhost:8081/repository/maven-releases/</url>
-		</repository>
-	</distributionManagement>
+	
 
 </project>
