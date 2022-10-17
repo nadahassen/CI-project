@@ -26,7 +26,7 @@ public class StockServiceImplTest {
 	@Order(1)
 	public void testRetrieveAllStocks() {
 	List<Stock> allStocks = stockService.retrieveAllStocks();
-	assertEquals(1,allStocks.size());
+	assertEquals(0,allStocks.size());
 	}
 	
 	@Test
