@@ -46,7 +46,7 @@ public class StockServiceImplTest {
 	@Test
 	@Order(4)
 	public void testDeleteStock() {
-	stockService.deleteStock(1L);
+	stockService.deleteStock(2L);
 	assertNull(stockService.retrieveStock(1L));
 	}
 }
