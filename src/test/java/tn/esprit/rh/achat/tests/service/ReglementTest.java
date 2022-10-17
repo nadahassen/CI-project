@@ -37,7 +37,6 @@ public void testRetrieveReglement() {
 	Mockito.when(reglementRepositoy.findById(1L)).thenReturn(Optional.of(r));
 	reglementRepositoy.retrieveReglementByFacture(1L);
 	Assertions.assertNotNull(r);
-	
 	System.out.println(r); 
 	System.out.println(" Test of retrieve is working correctly");  
 	
