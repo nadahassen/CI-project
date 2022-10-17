@@ -22,7 +22,7 @@ public class StockServiceImplTest {
 	@Autowired
 	IStockService stockService;
 
-	/*@Test
+	@Test
 	@Order(1)
 	public void testRetrieveAllStocks() {
 	List<Stock> allStocks = stockService.retrieveAllStocks();
@@ -48,5 +48,5 @@ public class StockServiceImplTest {
 	public void testDeleteStock() {
 	stockService.deleteStock(1L);
 	assertNull(stockService.retrieveStock(1L));
-	}*/
+	}
 }
