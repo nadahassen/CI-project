@@ -31,7 +31,7 @@ public class ProduitServiceImplTest {
 	@Order(1)
 	public void testRetrieveAllProduits() {
 		List<Produit> allProduits = ProduitService.retrieveAllProduits();
-		assertEquals(1, allProduits.size());
+		assertEquals(4, allProduits.size());
 	}
 
 	@Test
@@ -50,15 +50,15 @@ public class ProduitServiceImplTest {
 	@Test
 	@Order(3)
 	public void testRetrieveProduit() {
-		Produit produit = ProduitService.retrieveProduit(1L);
-		assertEquals(1L, produit.getIdProduit().longValue());
+		Produit produit = ProduitService.retrieveProduit(2L);
+		assertEquals(2L, produit.getIdProduit().longValue());
 	}
 
 	@Test
 	@Order(4)
 	public void testDeleteProduit() {
-		ProduitService.deleteProduit(1L);
-		assertNull(ProduitService.retrieveProduit(1L));
+		ProduitService.deleteProduit(2L);
+		assertNull(ProduitService.retrieveProduit(2L));
 	}
 
 }
