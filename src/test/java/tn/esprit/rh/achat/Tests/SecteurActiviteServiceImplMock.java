@@ -37,32 +37,30 @@ public class SecteurActiviteServiceImplMock {
 	SecteurActiviteServiceImpl SecteurService;
 	
 	@Test
-	public void testRetrieveSecteur() {
+	public void RetrieveSecteurActiviteTest() {
 		
-		SecteurActivite secteur1 = new SecteurActivite(1L, "test1","test2",null);
-		secteur1.setIdSecteurActivite(1L);
+		SecteurActivite secteurAc1 = new SecteurActivite(1L, "02000","MOBILIER DE BUREAU",null);
+		secteurAc1.setIdSecteurActivite(1L);
 		
-	Mockito.when(SecteurRepository.findById(1L)).thenReturn(Optional.of(secteur1));
+	Mockito.when(SecteurRepository.findById(1L)).thenReturn(Optional.of(secteurAc1));
 	SecteurService.retrieveSecteurActivite(1L);
-	Assertions.assertNotNull(secteur1);
+	Assertions.assertNotNull(secteurAc1);
 	
-	System.out.println(secteur1); 
-	System.out.println("Test effectué avec succée");  
-	
+	System.out.println(secteurAc1); 
+	System.out.println("Retrieve Secteur Activite is working ");  
+
 	}
-	
-	
 	@Test
-	public void createSecteurTest()
+	public void AddSecteurActiviteTest()
 	{
 
-		SecteurActivite secteur2 = new SecteurActivite(null,"test","testtest",null);
+		SecteurActivite secteur2 = new SecteurActivite(null,"06000","EQUIPEMENTS ET FOURNITURES DU BUREAU",null);
 		secteur2.setIdSecteurActivite(2L);
 		
 		SecteurService.addSecteurActivite(secteur2);
 		verify(SecteurRepository, times(1)).save(secteur2);
 		System.out.println(secteur2); 
-		System.out.println(" Create is working correctly...!!");  
+		System.out.println(" Add Secteur Activite Fournisseur is working ");  
 	}
 	@Test
 	public void getAllSecteursTest()
@@ -70,24 +68,21 @@ public class SecteurActiviteServiceImplMock {
 		List<SecteurActivite> SecteurList = new ArrayList<SecteurActivite>() {
 
 			{
-		add(new SecteurActivite(null,"test1","salut",null));
-		add(new SecteurActivite(null,"test2","hello",null));
-		add(new SecteurActivite(null,"test3","hi",null));
-			}};
-			
-			
+		add(new SecteurActivite(null,"07000","ÉQUIPEMENTS ET FOURNITURES DE CAFÉTÉRIA",null));
+		add(new SecteurActivite(null,"08000","ÉQUIP. – FOURN. D'ENTRETIEN TECHNIQUE",null));
+		add(new SecteurActivite(null,"09000","ÉQUIP INFORMATIQUE",null));
+			}};	
 		when(SecteurService.retrieveAllSecteurActivite()).thenReturn(SecteurList);
-		//test
 		List<SecteurActivite> sList = SecteurService.retrieveAllSecteurActivite();
 		assertEquals(3, sList.size());
-		System.out.println(" Retrieve all is working correctly...!!");  
+		System.out.println(" Retrieve all Secteur is working ");  
 	
 	}
 	
 	@Test
-	public void TestDeleteSecteur(){
+	public void DeleteSecteurTest(){
 
-	SecteurActivite secteur1 = new SecteurActivite(null,"bbbb","no",null);
+	SecteurActivite secteur1 = new SecteurActivite(null,"07000","ÉQUIPEMENTS ET FOURNITURES DE CAFÉTÉRIA",null);
 	secteur1.setIdSecteurActivite(7L);
 	
 	Mockito.lenient().when(SecteurRepository.findById(secteur1.getIdSecteurActivite())).thenReturn(Optional.of(secteur1));
@@ -96,7 +91,7 @@ public class SecteurActiviteServiceImplMock {
 	verify(SecteurRepository).deleteById(secteur1.getIdSecteurActivite());
 	
 	System.out.println(secteur1);
-	System.out.println(" Delete is working correctly...!!");  
+	System.out.println(" Delete is working ");  
 	}
 	
 	
