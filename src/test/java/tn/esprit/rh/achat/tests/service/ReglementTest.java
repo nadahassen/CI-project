@@ -57,7 +57,7 @@ public void createReglementTest()
 }
 
 @Test
-public void TestDeleteSecteur(){
+public void TestDelete(){
 
 	Reglement reglement = new Reglement(1L, 1200, 200, null, null, null);
     reglement.setIdReglement(3L);
