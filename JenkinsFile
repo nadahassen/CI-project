@@ -31,12 +31,12 @@ pipeline {
         }
         stage('Deploy'){
 			steps{
-				sh "mvn deploy"
+				sh 'mvn deploy'
 			}				
 		}
-		stage("Deploy With Nexus") {
+		stage("Deploy With Nexus")s {
             steps {
-                sh "mvn clean package deploy:deploy-file -DgroupId=tn.spring -DartifactId=achat -Dversion=1.0 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://localhost:8081/repository/maven-releases/ -Dfile=target/achat-1.0.war"
+                sh 'mvn clean package deploy:deploy-file -DgroupId=tn.spring -DartifactId=achat -Dversion=1.0 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://localhost:8081/repository/maven-releases/ -Dfile=target/achat-1.0.war'
             }
        }
        
