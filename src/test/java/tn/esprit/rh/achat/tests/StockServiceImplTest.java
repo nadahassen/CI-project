@@ -19,10 +19,10 @@ import tn.esprit.rh.achat.services.IStockService;
 @SpringBootTest
 @TestMethodOrder(OrderAnnotation.class)
 public class StockServiceImplTest {
-	/*@Autowired
+	@Autowired
 	IStockService stockService;
 
-	@Test
+	/*@Test
 	@Order(1)
 	public void testRetrieveAllStocks() {
 	List<Stock> allStocks = stockService.retrieveAllStocks();
