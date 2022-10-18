@@ -20,7 +20,7 @@ import tn.esprit.rh.achat.services.ReglementServiceImpl;
 
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
-public class ReglementTest {
+public class ReglementServiceTest {
 	
 	@Mock
 	ReglementRepository reglementRepositoy;
