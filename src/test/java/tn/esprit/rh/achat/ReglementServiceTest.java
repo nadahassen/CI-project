@@ -1,4 +1,4 @@
-package tn.esprit.rh.achat.service.reglements;
+package tn.esprit.rh.achat;
 
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
