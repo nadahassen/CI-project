@@ -1,37 +1,67 @@
 package tn.esprit.rh.achat.tests.service;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import tn.esprit.rh.achat.entities.Produit;
+import tn.esprit.rh.achat.repositories.ProduitRepository;
 import tn.esprit.rh.achat.services.IProduitService;
+import tn.esprit.rh.achat.services.ProduitServiceImpl;
 
 
 @TestMethodOrder(OrderAnnotation.class)
 @SpringBootTest
+@ExtendWith(MockitoExtension.class)
 public class ProduitServiceImplTest {
 	@Autowired
 	IProduitService ProduitService;
+	@Mock
+	ProduitRepository produitRepository;
+	@InjectMocks
+	ProduitServiceImpl produitService;
+	
+	
+	DateFormat df = new SimpleDateFormat("MM-dd-yyyy");
 
+	Produit produit = new Produit("00708", "libbPorduit", 10, new Date(), new Date());
+	
+	ArrayList<Produit> listProduits = new ArrayList<Produit>() {
+		{
+			add(new Produit("00708", "libbPorduit", 10, new Date(), new Date()));
+			add(new Produit("00708", "libbPovrduit", 17, new Date(), new Date()));
+		}
+		
+	};
+	
+	
 	@Test
 	@Order(1)
-	public void testRetrieveAllProduits() {
-		List<Produit> allProduits = ProduitService.retrieveAllProduits();
-		assertEquals(5, allProduits.size());
+	
+	public void testRetrieveProduit() {
+	Mockito.when(produitRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(produit));
+	Produit produit1 = produitService.retrieveProduit(2L);
+	Assertions.assertNotNull(produit1);
+	
 	}
 
 	@Test
@@ -47,12 +77,7 @@ public class ProduitServiceImplTest {
 	}
 	
 //
-	@Test
-	@Order(3)
-	public void testRetrieveProduit() {
-		Produit produit = ProduitService.retrieveProduit(3L);
-		assertEquals(3L, produit.getIdProduit().longValue());
-	}
+
 
 	@Test
 	@Order(4)
