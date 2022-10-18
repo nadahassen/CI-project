@@ -62,7 +62,7 @@ public class ProduitServiceImplMock {
 	
 	public void testRetrieveProduit() {
 	Mockito.when(produitRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(produit));
-	Produit produit1 = produitService.retrieveProduit(2L);
+	Produit produit1 = produitService.retrieveProduit(6L);
 	Assertions.assertNotNull(produit1);
 	
 	}
@@ -85,8 +85,8 @@ public class ProduitServiceImplMock {
 	@Test
 	@Order(4)
 	public void testDeleteProduit() {
-		ProduitService.deleteProduit(3L);
-		assertNull(ProduitService.retrieveProduit(3L));
+		ProduitService.deleteProduit(5L);
+		assertNull(ProduitService.retrieveProduit(4L));
 	}
 
 }
