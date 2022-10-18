@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>tn.esprit.rh</groupId>
 	<artifactId>achat</artifactId>
-	<version>1.0</version>
+	<version>1.1.3</version>
 	<name>achat</name>
 	<description>Projet pour le module DevOps</description>
 	<properties>
@@ -18,6 +18,10 @@
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
 	</properties>
 	<dependencies>
+	    <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -26,7 +30,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -41,8 +48,24 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
-
+		<dependency>
+		    <groupId>log4j</groupId>
+		    <artifactId>log4j</artifactId>
+		    <version>1.2.17</version>
+		</dependency>		
+		
+		<dependency>
+		    <groupId>junit</groupId>
+		    <artifactId>junit</artifactId>
+		    <scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-boot-starter</artifactId>
@@ -56,11 +79,16 @@
 
 	</dependencies>
 	<distributionManagement>
-	<repository>
-	<id>deploymentRepo</id>
-	<name>NexusRepository</name>
-	<url>http://localhost:8081/repository/maven-snapshots/</url>
-	</repository>
+		<snapshotRepository>
+			<id>deploymentRepo</id>
+			<name>NexusRepository</name>
+			<url>http://localhost:8081/repository/maven-snapshots/</url>
+		</snapshotRepository>
+		<repository>
+			<id>deploymentRepo</id>
+			<name>NexusRepository</name>
+			<url>http://localhost:8081/repository/maven-releases/</url>
+		</repository>
 	</distributionManagement>
 	<build>
 		<plugins>
@@ -81,7 +109,18 @@
 			    <artifactId>maven-resources-plugin</artifactId>
 			     <version>3.1.0</version>
 			</plugin>
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-surefire-plugin</artifactId>
+			    <version>2.19.1</version>
+			    <configuration>
+			        <includes>
+			            <include>**/*Test.java</include>
+			        </includes>
+			    </configuration>
+			</plugin>
 		</plugins>
 	</build>
+	
 
 </project>
