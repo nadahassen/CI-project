@@ -19,7 +19,7 @@ import tn.esprit.rh.achat.services.IStockService;
 @SpringBootTest
 @TestMethodOrder(OrderAnnotation.class)
 public class StockServiceImplTest {
-	/*@Autowired
+	@Autowired
 	IStockService stockService;
 
 	@Test
@@ -39,14 +39,14 @@ public class StockServiceImplTest {
 	@Test
 	@Order(3)
 	public void testRetrieveStock() {
-	Stock stock = stockService.retrieveStock(2L);
-	assertEquals(2L, stock.getIdStock().longValue());
+	Stock stock = stockService.retrieveStock(1L);
+	assertEquals(1L, stock.getIdStock().longValue());
 	}
 
 	@Test
 	@Order(4)
 	public void testDeleteStock() {
-	stockService.deleteStock(2L);
+	stockService.deleteStock(1L);
 	assertNull(stockService.retrieveStock(1L));
-	}*/
+	}
 }
