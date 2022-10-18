@@ -2,6 +2,9 @@ package tn.esprit.rh.achat.tests.service;
 
 
 
+import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -32,7 +35,7 @@ import tn.esprit.rh.achat.services.ProduitServiceImpl;
 @TestMethodOrder(OrderAnnotation.class)
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
-public class ProduitServiceImplTest {
+public class ProduitServiceImplMock {
 	@Autowired
 	IProduitService ProduitService;
 	@Mock
@@ -48,7 +51,7 @@ public class ProduitServiceImplTest {
 	ArrayList<Produit> listProduits = new ArrayList<Produit>() {
 		{
 			add(new Produit("00708", "libbPorduit", 10, new Date(), new Date()));
-			add(new Produit("00708", "libbPovrduit", 17, new Date(), new Date()));
+			add(new Produit("007018", "libbPovrduit", 17, new Date(), new Date()));
 		}
 		
 	};
