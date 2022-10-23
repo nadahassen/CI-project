@@ -133,9 +133,11 @@
 			            <include>**/*Test.java</include>
 			        </includes>
 			    </configuration>
-			</plugin>
 			
+			</plugin>
+
 		</plugins>
+		 <finalName>achat-1.2.1-SNAPSHOT</finalName>
 	</build>
 	
 

@@ -1,0 +1,21 @@
+version: '3.3'
+services:
+  mysqldb:
+    container_name: mysqldb
+    image: mysql:8
+    ports:
+     - '3306:3306'
+    restart : unless-stopped
+    environment:
+         MYSQL_USERNAME: root
+         MYSQL_PASSWORD: pass
+         MYSQL_ROOT_PASSWORD: pass  
+
+  back: 
+    image: achatproject
+    container_name: achatproject
+    restart: on-failure
+    ports:
+      - '8088'
+    depends_on:
+      - mysqldb
