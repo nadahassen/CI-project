@@ -14,8 +14,8 @@ services:
      - /home/mysql/data:/var/lib/mysql --user 1000
 
   spring_app:
-   image: achatapp:latest
-   container_name: achatapp
+   image: cyrinebh123/achatesprit:latest
+   container_name: achatesprit
    restart: on-failure
    ports:
     - 8089:8089
