@@ -35,7 +35,14 @@ public class StockServiceImplMock {
             add(Stock.builder().libelleStock("test2").qte(200).qteMin(20).build());
         }
     };
+    
+    @Test
+    public void testAddstock() {
+        Mockito.when(stockRepository.save(s)).thenReturn(s);
+        Stock s1 = stockServiceImpl.addStock(s);
+        Assertions.assertNotNull(s1);
 
+    }
     @Test
     public void testRetrieveStock() {
         Mockito.when(stockRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(s));
@@ -50,12 +57,6 @@ public class StockServiceImplMock {
         Assertions.assertNotNull(lStocks);
     }
 
-    @Test
-    public void testAddstock() {
-        Mockito.when(stockRepository.save(s)).thenReturn(s);
-        Stock s1 = stockServiceImpl.addStock(s);
-        Assertions.assertNotNull(s1);
-
-    }
+   
 
 }
