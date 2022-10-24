@@ -135,15 +135,9 @@
 			    </configuration>
 			
 			</plugin>
-         
+
 		</plugins>
 		 <finalName>achat-1.2.1-SNAPSHOT</finalName>
-		 <resources>
-        <resource>
-            <directory>src/main/resources</directory>
-            <filtering>true</filtering>
-        </resource>
-    </resources>
 	</build>
 	
 
