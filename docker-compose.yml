@@ -1,0 +1,9 @@
+version: '3'
+services:
+  spring-back: 
+    image: hibafh/achat
+    container_name: achat
+    ports:
+      - 8089:8089
+    depends_on:
+      - mysql_db_1
