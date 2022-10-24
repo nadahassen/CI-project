@@ -3,7 +3,7 @@ version: "3.8"
 services:
   springapp:
     image: rihab26/achatdevops
-    container_name: achatapp
+    container_name: achatdevops
     restart: on-failure
     ports:
       - "8089:8089"
@@ -20,7 +20,9 @@ services:
       - springmysql-net
     environment:
       - MYSQL_DATABASE=achatdb
-      - MYSQL_ALLOW_EMPTY_PASSWORD=1
+      - MYSQL_USERNAME=root
+      - MYSQL_PASSWORD=pass
+      - MYSQL_ROOT_PASSWORD=pass
     volumes:
       -/var/lib/mysql
       
