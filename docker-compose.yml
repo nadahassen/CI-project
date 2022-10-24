@@ -23,8 +23,8 @@ services:
       - MYSQL_USERNAME=root
       - MYSQL_PASSWORD=pass
       - MYSQL_ROOT_PASSWORD=pass
-    volumes:
-      -/var/lib/mysql
+volumes:
+      - /var/lib/mysql
       
 
 networks:
