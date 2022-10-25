@@ -29,7 +29,7 @@ services:
       # Opens port 3306 on the container
       - 8089
   frontend:
-    image: hibafh/front-app-ci
+    image: hibafh/front-app
     container_name: achat-front
     links:
       - spring-back
