@@ -24,8 +24,6 @@ services:
       - MYSQL_USERNAME=root
       - MYSQL_ALLOW_EMPTY_PASSWORD=1
 
-
-
 networks:
   springmysql-net:
                   
